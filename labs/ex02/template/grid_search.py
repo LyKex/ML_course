@@ -18,8 +18,15 @@ def get_best_parameters(w0, w1, losses):
     return losses[min_row, min_col], w0[min_row], w1[min_col]
 
 
-# ***************************************************
-# INSERT YOUR CODE HERE
-# TODO: Paste your implementation of grid_search
-#       here when it is done.
-# ***************************************************
+def grid_search(y, tx, num_intervals):
+    """Algorithm for grid search.
+    Return optimal loss, weight from grid serach
+    """
+    w0, w1 = generate_w(num_intervals)
+    losses = np.zeros((len(w0), len(w1)))
+    for i in range(len(w0)):
+        for j in range(len(w1)):
+            losses[i,j] = costs.compute_loss(y, tx, np.array([w0[i], w1[j]]))
+
+    loss, w0, w1 = get_best_parameters(w0, w1, losses)
+    return loss, [w0, w1]

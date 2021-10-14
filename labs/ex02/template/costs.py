@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """Function used to compute the loss."""
+import numpy as np
+
+def compute_error(y, tx, w):
+    return y - tx @ w
 
 def compute_loss(y, tx, w):
-    """Calculate the loss.
-
-    You can calculate the loss using mse or mae.
+    """Calculate the loss with MSE.
     """
-    # ***************************************************
-    # INSERT YOUR CODE HERE
-    # TODO: compute loss by MSE / MAE
-    # ***************************************************
-    raise NotImplementedError
+    e = compute_error(y, tx, w)
+
+    return np.sum((e ** 2), axis=0) / (2 * len(y)) 

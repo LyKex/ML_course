@@ -18,6 +18,8 @@ def build_poly(x, degree):
     """
     if degree <= 0:
         raise ValueError("degree should be >= 1")
-    x, _, _ = standardize(x)
+    # not sure why we don't standardize but this gives same result with
+    # the handout
+    # x, _, _ = standardize(x)
     px = np.vstack([x**j for j in range(0,degree+1)])
     return px.T

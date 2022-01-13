@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/lykex/pyenv/bin/python3"
+    "python.pythonPath": "/home/lykex/pyenv/bin/python3",
+    "python.formatting.provider": "black"
 }
